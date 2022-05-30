@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# This script checks for multiple of 5, 3, or both from 1 to 100
+
+counter=1
+while [ $counter -le 100 ]
+do
+	remainder1=$(( counter % 3 ))
+	remainder2=$(( counter % 5 ))
+	
+	if [ "$remainder1" -eq 0 ] && [ "$remainder2" -eq 0 ]
+	then
+		echo "FizzBuzz"
+		counter=$(( counter + 1 ))
+	
+	elif [ "$remainder1" -eq 0 ]
+	then
+		echo "Fizz"
+		counter=$(( counter + 1 ))
+
+	elif [ "$remainder2" -eq 0 ]
+	then
+		echo "Buzz"
+		counter=$(( counter + 1 ))
+	else
+		echo "$counter"
+		counter=$(( counter + 1 ))
+fi
+done
