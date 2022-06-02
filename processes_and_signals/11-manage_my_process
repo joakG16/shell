@@ -11,13 +11,13 @@ then
 elif test "$1" == "stop"
 then
 	kill -KILL "$( pgrep -f "$filee" )"
-	rm -rf "$filee"
+	rm -f "$filee"
 	echo "manage_my_process stopped"
 
 elif test "$1" == "restart"
 then
 	kill -KILL "$( pgrep -f "$filee" )"
-       	rm -rf "$filee"
+       	rm -f "$filee"
 	./manage_my_process &
 	echo "manage_my_process restarted"
 fi
