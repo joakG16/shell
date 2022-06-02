@@ -9,14 +9,14 @@ function func1()
 	echo "I hate the kill command"
 }
 
-trap "func3" SIGTERM
+trap 'func3' 15
 
 function func2()
 {
 	echo "Y U no love me?!"
 }
 
-trap "func2" SIGINT
+trap "func2" 2
 
 function func3()
 {
@@ -24,10 +24,9 @@ function func3()
 	exit
 }
 
-trap "func" SIGQUIT SIGTERM
+trap "func" 3 15
 
 while true
 do
     echo "To infinty and beyond"
-    sleep 2
 done
