@@ -15,7 +15,7 @@ then
 
 elif test "$1" == "restart"
 then
-	/etc/init.d/manage_my_process stop && rm -rf /var/run/my_process.pid && /etc/init.d/manage_my_process start && echo "manage_my_process restarted"
+	kill -KILL "$( pgrep -f manage_my_process )" && rm -rf /var/run/my_process.pid && ./manage_my_process && echo "manage_my_process restarted"
 fi
 
 if test "$1" == ""
