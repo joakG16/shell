@@ -15,7 +15,8 @@ then
 
 elif test "$1" == "restart"
 then
-	kill -KILL "$( pgrep -f manage_my_process )" && rm -rf /var/run/my_process.pid
+	kill -KILL "$( pgrep -f manage_my_process )"
+       	rm -rf /var/run/my_process.pid
 	./manage_my_process &
 	echo "manage_my_process restarted"
 fi
