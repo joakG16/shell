@@ -17,7 +17,7 @@ while true
 do
     echo "To infinity and beyond"
     sleep 2
-    trap "echo 'I hate the kill command'" SIGTERM
+    trap "echo 'I hate the kill command'; func3" SIGTERM
     trap 'func2' SIGINT
-    trap 'func3' SIGQUIT SIGTERM
+    trap 'func3' SIGQUIT
 done
