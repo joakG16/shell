@@ -1,22 +1,23 @@
 #!/usr/bin/env bash
 #Bash script that
- 
+
+filee="/var/run/my_process.pid"
 if test "$1" == "start"
 then
 	./manage_my_process &
-	echo $! >> /var/run/my_process.pid 
+	echo $! >> "$filee" 
 	echo "manage_my_process started"
 
 elif test "$1" == "stop"
 then
-	kill -KILL "$( pgrep -f /var/run/my_process.pid )"
-	rm -rf /var/run/my_process.pid
+	kill -KILL "$( pgrep -f "$filee" )"
+	rm -rf "$filee"
 	echo "manage_my_process stopped"
 
 elif test "$1" == "restart"
 then
-	kill -KILL "$( pgrep -f /var/run/my_process.pid )"
-       	rm -rf /var/run/my_process.pid
+	kill -KILL "$( pgrep -f "$filee" )"
+       	rm -rf "$filee"
 	./manage_my_process &
 	echo "manage_my_process restarted"
 fi
