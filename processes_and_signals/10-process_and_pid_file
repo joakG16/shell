@@ -19,8 +19,9 @@ func3 () {
 
 while true
 do
-    echo "To infinty and beyond"
-    trap 'func1' 15
-    trap 'func2' 2
-    trap 'func3' 3 15
+    echo "To infinity and beyond"
+    sleep 2
+    trap 'func1' SIGTERM
+    trap 'func2' SIGINT
+    trap 'func3' SIGQUIT SIGTERM
 done
