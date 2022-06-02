@@ -9,7 +9,7 @@ then
 
 elif test "$1" == "stop"
 then
-	kill -KILL $( pgrep -f manage_my_process )
+	kill -KILL "$( pgrep -f manage_my_process )"
 	rm -rf /var/run/my_process.pid
 	echo "manage_my_process stopped"
 
