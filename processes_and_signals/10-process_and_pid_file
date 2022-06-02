@@ -5,7 +5,7 @@ pid_file="/var/run/myscript.pid"
 echo $$ > $pid_file
 
 func1 () {
-	echo "I hate the kill command"
+	'echo "I hate the kill command"; rm -rf "$pid_file"; exit'
 }
 
 trap 'func1' 15
@@ -23,7 +23,8 @@ func3 () {
 
 trap 'func3' 3 15
 
-while true
+i=0
+while [ $i -gt 0 ]
 do
     echo "To infinty and beyond"
 done
