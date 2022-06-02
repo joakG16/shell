@@ -5,7 +5,7 @@ pid_file="/var/run/myscript.pid"
 echo $$ > $pid_file
 
 func1 (){
-	echo "I hate the kill command"
+	echo I hate the kill command
 }
 
 func2 () {
