@@ -5,20 +5,21 @@ filee="/var/run/my_process.pid"
 if test "$1" == "start"
 then
 	./manage_my_process &
-	echo $! >> "$filee" 
+	echo $! > "$filee" 
 	echo "manage_my_process started"
 
 elif test "$1" == "stop"
 then
-	kill -KILL "$( pgrep -f "$filee" )"
+	kill -9 "$( pgrep -f "$filee" )"
 	rm -f "$filee"
 	echo "manage_my_process stopped"
 
 elif test "$1" == "restart"
 then
-	kill -KILL "$( pgrep -f "$filee" )"
+	kill -9 "$( pgrep -f "$filee" )"
        	rm -f "$filee"
 	./manage_my_process &
+	echo $! > "$filee"
 	echo "manage_my_process restarted"
 fi
 
