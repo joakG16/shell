@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#Bash script that
+
+filedel=/var/run/myscript.pid
+
+function func1()
+{
+	echo "I hate the kill command"
+}
+
+trap func3 15
+
+function func2()
+{
+	echo "Y U no love me?!"
+}
+
+trap func2 2
+
+function func3()
+{
+	rm -f $filedel
+	exit
+}
+
+trap func 3 15
+
+while true
+do
+    echo "To infinty and beyond"
+    sleep 2
+done
