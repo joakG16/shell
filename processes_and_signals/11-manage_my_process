@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#Bash script that
+ 
+if test "$1" == "start"
+then
+	/etc/init.d/manage_my_process start && echo $$ >> /var/run/my_process.pid && echo "manage_my_process started"
+
+elif test "$1" == "stop"
+then
+	/etc/init.d/manage_my_process stop && rm -rf /var/run/my_process.pid && echo "manage_my_process stopped"
+
+elif test "$1" == "restart"
+then
+	/etc/init.d/manage_my_process stop && rm -rf /var/run/my_process.pid && /etc/init.d/manage_my_process start && echo "manage_my_process restarted"
+fi
+
+if test "$1" -eq 0
+then 
+	echo "Usage: manage_my_process {start|stop|restart}"
+fi

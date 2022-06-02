@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Bash script that
+
+while true
+do
+	printf "I am alive!\n" >> /tmp/my_process
+	sleep 2
+done
