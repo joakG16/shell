@@ -14,7 +14,7 @@ then
 	/etc/init.d/manage_my_process stop && rm -rf /var/run/my_process.pid && /etc/init.d/manage_my_process start && echo "manage_my_process restarted"
 fi
 
-if test "$1" -eq 0
+if test "$1" == ""
 then 
 	echo "Usage: manage_my_process {start|stop|restart}"
 fi
