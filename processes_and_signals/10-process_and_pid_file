@@ -4,22 +4,19 @@
 pid_file="/var/run/myscript.pid"
 echo $$ > $pid_file
 
-function func1()
-{
+func1 () {
 	echo "I hate the kill command"
 }
 
 trap 'func3' 15
 
-function func2()
-{
+func2 () {
 	echo "Y U no love me?!"
 }
 
 trap 'func2' 2
 
-function func3()
-{
+func3 () {
 	rm -rf "$pid_file"
 	exit
 }
