@@ -9,13 +9,13 @@ then
 
 elif test "$1" == "stop"
 then
-	kill -KILL "$( pgrep -f manage_my_process )"
+	kill -KILL "$( pgrep -f /var/run/my_process.pid )"
 	rm -rf /var/run/my_process.pid
 	echo "manage_my_process stopped"
 
 elif test "$1" == "restart"
 then
-	kill -KILL "$( pgrep -f manage_my_process )"
+	kill -KILL "$( pgrep -f /var/run/my_process.pid )"
        	rm -rf /var/run/my_process.pid
 	./manage_my_process &
 	echo "manage_my_process restarted"
