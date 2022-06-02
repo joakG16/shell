@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #Bash script that
 
-filedel=/var/run/myscript.pid
+pid_file="/var/run/myscript.pid"
+echo $$ > $pid_file
 
 function func1()
 {
@@ -19,7 +20,7 @@ trap func2 2
 
 function func3()
 {
-	rm -f $filedel
+	rm -rf 
 	exit
 }
 
